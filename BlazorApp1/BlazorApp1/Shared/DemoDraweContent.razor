@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Components
+@inject NavigationManager Url
+
+
+<MatDrawerContainer Style="width: 10vw; height: 100vh;">
+   
+    
+    <div>
+        <select class="form-control" @onchange="selectedValue">
+            <option value="">select one</option>
+            @foreach (var mod in values)
+            {
+                <option value="@mod.Id">@mod.Name</option>
+            }
+        </select>
+        <br /> <MatButton OnClick="@((e) => ButtonClicked())" Icon="explicit">EMS</MatButton>
+        
+    </div>
+    <div>
+        <br /> <MatButton OnClick="@((e) => ButtonClicked())" Icon="contact_mail">CRM</MatButton>
+    </div>
+    <div>
+        <br /> <MatButton OnClick="@((e) => ButtonClicked())" Icon="dvr">BILLING</MatButton>
+    </div>
+     <div>
+        <br /> <MatButton OnClick="@((e) => ButtonClicked())" Icon="account_circle">ACCOUNTS</MatButton>
+    </div>
+    
+</MatDrawerContainer>
+
+
+@code
+{
+    bool Opened = true;
+
+    void ButtonClicked()
+    {
+        Opened = !Opened;
+    }
+
+}
+
+
+

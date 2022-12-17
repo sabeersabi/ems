@@ -1,0 +1,17 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+<MudTreeView T="string" ExpandOnClick="true">
+    <MudTreeViewItem Value='"Categories"' Icon="@Icons.Filled.Label" IconColor="Color.Error" ExpandedIcon="@Icons.Filled.ArrowRight">
+        <MudTreeViewItem Value='"Social"' Icon="@Icons.Filled.Group" />
+        <MudTreeViewItem Value='"Updates"' Icon="@Icons.Filled.Info" IconColor="Color.Warning" />
+    </MudTreeViewItem>
+    <MudTreeViewItem Value='"Categories"' Icon="@Icons.Filled.Label" IconColor="Color.Error" ExpandedIcon="@Icons.Filled.ArrowRight">
+        <MudTreeViewItem Value='"Forums"' Icon="@Icons.Filled.QuestionAnswer" />
+        <MudTreeViewItem Value='"Spam"' Icon="@Icons.Filled.LocalOffer" />
+    </MudTreeViewItem>
+    <MudTreeViewItem Value='"Trash"' Icon="@Icons.Filled.Delete" />
+</MudTreeView>
+
+<SurveyPrompt Title="How is Blazor working for you?" />

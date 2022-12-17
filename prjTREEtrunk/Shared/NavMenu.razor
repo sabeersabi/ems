@@ -1,0 +1,40 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="top-row ps-3 navbar navbar-dark">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="">prjTREEtrunk</a>
+		<button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</div>
+</div>
+
+<div Class="pa-4 darken-1 shades-text text-white">
+
+	<MudTreeView T="string" ExpandOnClick="true">
+		<MudTreeViewItem Value='"Dashboard"' Icon="@Icons.Filled.Home" IconColor="Color.Inherit" ExpandedIcon="@Icons.Filled.ArrowRight">
+			<MudTreeViewItem Value='"Home"' Icon="@Icons.Filled.Group" OnClick="navFun"/>
+		   <MudTreeViewItem Value='"Updates"' Icon="@Icons.Filled.Info" IconColor="Color.Warning" />
+		</MudTreeViewItem>
+		<MudTreeViewItem Value='"CostCenter"' Icon="@Icons.Filled.Shop" IconColor="Color.Inherit" ExpandedIcon="@Icons.Filled.ArrowRight">
+		   <MudTreeViewItem Value='"All CostCenters"' Icon="@Icons.Filled.Shop" OnClick="navFun_2"/>
+		   <MudTreeViewItem Value='"Others"' Icon="@Icons.Filled.LocalOffer" />
+		</MudTreeViewItem>
+		<MudTreeViewItem Value='"Logout"' Icon="@Icons.Filled.Logout" IconColor="Color.Error" />
+	</MudTreeView>
+
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private void navFun() => NavigationManager.NavigateTo("/dashboard");
+	private void navFun_2() => NavigationManager.NavigateTo("/cost-center-list");
+}
